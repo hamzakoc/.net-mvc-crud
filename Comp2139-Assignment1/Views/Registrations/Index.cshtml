@@ -1,0 +1,45 @@
+﻿@model IEnumerable<Comp2139_Assignment1.Models.Registrations>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Registration Manager</h1>
+
+
+<table class="table table-striped table-bordered">
+    <thead>
+        <tr>
+            <th>
+                Customer
+            </th>
+            <th>
+                Product
+            </th>
+            <th></th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.CustomersID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProductsID)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.RegistrationsID"><button type="button" class="btn btn-primary">Edit</button></a>
+            </td>
+            <td>
+                <a asp-action="Delete" asp-route-id="@item.RegistrationsID"><button type="button" class="btn btn-primary">Delete</button></a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+<p>
+    <a asp-action="Create"><button type="button" class="btn btn-primary"> Add Registration</button></a>
+</p>

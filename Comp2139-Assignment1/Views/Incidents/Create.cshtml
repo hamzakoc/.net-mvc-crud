@@ -1,0 +1,57 @@
+﻿@model Comp2139_Assignment1.Models.Incidents
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<h4>Incidents Manager</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <div class="form-group">
+                    <label asp-for="CustomersID" class="control-label">Customer</label>
+                    <select asp-for="CustomersID" class="form-control" asp-items="ViewBag.CustomersID"></select>
+                </div>
+                <div class="form-group">
+                    <label asp-for="ProductsID" class="control-label">Product</label>
+                    <select asp-for="ProductsID" class="form-control" asp-items="ViewBag.ProductsID"></select>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Title" class="control-label"></label>
+                    <input asp-for="Title" class="form-control" />
+                    <span asp-validation-for="Title" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                <label asp-for="Description" class="control-label"></label>
+                <input asp-for="Description" class="form-control" />
+                <span asp-validation-for="Description" class="text-danger"></span>
+                </div>
+              <div class="form-group">
+                <label asp-for="TechniciansID" class="control-label">Technician</label>
+                <select asp-for="TechniciansID" class="form-control" asp-items="ViewBag.TechniciansID"><option value="">Assign a technician...</option></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="DateOpened" class="control-label">Date Opened</label>
+                <input asp-for="DateOpened" class="form-control" />
+                <span asp-validation-for="DateOpened" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DateClosed" class="control-label">Date Closed</label>
+                <input asp-for="DateClosed" class="form-control" />
+                <span asp-validation-for="DateClosed" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+                <a asp-action="Index"><button type="button" class="btn btn-primary"> Cancel</button></a>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+

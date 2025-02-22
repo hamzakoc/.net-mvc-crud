@@ -1,0 +1,35 @@
+﻿@model Comp2139_Assignment1.Models.Registrations
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Edit Registrations</h2>
+
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="RegistrationsID" />
+            <div class="form-group">
+                <label asp-for="CustomersID" class="control-label"></label>
+                <input asp-for="CustomersID" class="form-control" />
+                <span asp-validation-for="CustomersID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ProductsID" class="control-label"></label>
+                <input asp-for="ProductsID" class="form-control" />
+                <span asp-validation-for="ProductsID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+                <a asp-action="Index"><button type="button" class="btn btn-primary"> Cancel</button></a>
+            </div>
+        </form>
+    </div>
+</div>
+
+

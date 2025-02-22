@@ -1,0 +1,60 @@
+﻿@model IEnumerable<Comp2139_Assignment1.Models.Incidents>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table table-striped table-bordered">
+    <thead>
+        <tr>
+            <th>
+                Title
+            </th>
+            <th>
+                Customer
+            </th>
+            <th>
+                Product
+            </th>
+            <th>
+                Date Opened
+            </th>
+
+            <th></th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Customers.FName) @Html.DisplayFor(modelItem => item.Customers.LName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Products.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateOpened)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.IncidentsID"><button type="button" class="btn btn-primary">Edit</button></a>
+            </td>
+            <td>
+                <a asp-action="Delete" asp-route-id="@item.IncidentsID"><button type="button" class="btn btn-primary">Delete</button></a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+<p>
+    <a asp-action="Create"><button type="button" class="btn btn-primary"> Add Incident</button></a>
+</p>

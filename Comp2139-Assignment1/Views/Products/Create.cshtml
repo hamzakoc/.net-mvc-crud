@@ -1,0 +1,42 @@
+﻿@model Comp2139_Assignment1.Models.Products
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Add Products</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Code" class="control-label"></label>
+                <input asp-for="Code" class="form-control" />
+                <span asp-validation-for="Code" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Price" class="control-label">Yearly Price</label>
+                <input asp-for="Price" class="form-control" />
+                <span asp-validation-for="Price" class="text-danger placeholder="0.00""></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ReleaseDate" class="control-label">Release Date</label>
+                <input asp-for="ReleaseDate" class="form-control" />
+                <span asp-validation-for="ReleaseDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+                <a asp-action="Index"><button type="button" class="btn btn-primary"> Cancel</button></a>
+            </div>
+        </form>
+    </div>
+</div>
+
+
