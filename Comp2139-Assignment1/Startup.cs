@@ -25,11 +25,19 @@ namespace Comp2139_Assignment1
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllersWithViews();
-            services.AddDbContext<Assignment1Context>(options =>
-                options.UseSqlServer(Configuration.GetConnectionString("SupportProCC")));
+            //services.AddControllersWithViews();
+            //services.AddDbContext<Assignment1Context>(options =>
+            //    options.UseSqlServer(Configuration.GetConnectionString("SupportProCC")));
 
-            
+            services.AddControllersWithViews();
+
+            // Read connection string from environment variables (Azure App Service)
+            var connectionString = Configuration.GetConnectionString("SupportProCC");
+
+            services.AddDbContext<Assignment1Context>(options =>
+                options.UseSqlServer(connectionString));
+
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
